@@ -1,0 +1,1349 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>For My Cutie Manya 🥺💌</title>
+
+  <!-- Google Fonts: Dancing Script for romantic headers & Quicksand for cute, legible body text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* ==========================================================================
+       THEME VARIABLES & BASE STYLES
+       ========================================================================== */
+    :root {
+      --bg-grad-1: #ffd6e8;
+      --bg-grad-2: #e7d8ff;
+      --bg-grad-3: #ffe3d3;
+      --bg-grad-4: #f8c8dc;
+      --glass-bg: rgba(255, 255, 255, 0.42);
+      --glass-bg-strong: rgba(255, 255, 255, 0.62);
+      --glass-border: rgba(255, 255, 255, 0.72);
+      --glass-shadow: 0 12px 40px rgba(219, 112, 147, 0.18), inset 0 1px 1px rgba(255, 255, 255, 0.85);
+      --text-primary: #4a233b;
+      --text-secondary: #6e3b59;
+      --text-muted: #8c5674;
+      --accent-rose: #ec4899;
+      --accent-glow: rgba(236, 72, 153, 0.45);
+      --pill-bg: rgba(255, 255, 255, 0.55);
+      --pill-border: rgba(255, 255, 255, 0.8);
+      --env-body: #fff0f5;
+      --env-flap: #ffd1e3;
+      --env-side: #ffe0ec;
+      --env-bottom: #ffc2d9;
+      --env-shadow: rgba(219, 112, 147, 0.28);
+    }
+
+    body.night-mode {
+      --bg-grad-1: #1b102c;
+      --bg-grad-2: #2d163c;
+      --bg-grad-3: #3b1938;
+      --bg-grad-4: #16142e;
+      --glass-bg: rgba(32, 18, 48, 0.52);
+      --glass-bg-strong: rgba(45, 24, 66, 0.68);
+      --glass-border: rgba(255, 200, 230, 0.24);
+      --glass-shadow: 0 16px 45px rgba(0, 0, 0, 0.48), inset 0 1px 1px rgba(255, 210, 235, 0.22);
+      --text-primary: #ffeaf4;
+      --text-secondary: #f3cde0;
+      --text-muted: #cfa4bc;
+      --accent-rose: #f472b6;
+      --accent-glow: rgba(244, 114, 182, 0.55);
+      --pill-bg: rgba(255, 255, 255, 0.1);
+      --pill-border: rgba(255, 195, 225, 0.28);
+      --env-body: #3e204f;
+      --env-flap: #572b6b;
+      --env-side: #48245c;
+      --env-bottom: #66327a;
+      --env-shadow: rgba(0, 0, 0, 0.55);
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100dvh;
+      width: 100%;
+      overflow-x: hidden;
+      font-family: 'Quicksand', sans-serif;
+      color: var(--text-primary);
+      transition: color 0.5s ease;
+    }
+
+    .font-romantic {
+      font-family: 'Dancing Script', cursive;
+    }
+
+    /* ==========================================================================
+       ANIMATED PASTEL MESH GRADIENT BACKGROUND & STARRY NIGHT LAYER
+       ========================================================================== */
+    .mesh-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      background:
+        radial-gradient(at 15% 20%, var(--bg-grad-1) 0px, transparent 58%),
+        radial-gradient(at 85% 15%, var(--bg-grad-2) 0px, transparent 58%),
+        radial-gradient(at 80% 85%, var(--bg-grad-3) 0px, transparent 58%),
+        radial-gradient(at 20% 85%, var(--bg-grad-4) 0px, transparent 58%),
+        linear-gradient(135deg, var(--bg-grad-1), var(--bg-grad-2), var(--bg-grad-3), var(--bg-grad-4));
+      background-size: 200% 200%;
+      animation: meshFlow 16s ease-in-out infinite;
+      transition: background 0.8s ease;
+    }
+
+    @keyframes meshFlow {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Ambient Glowing Orbs */
+    .ambient-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.45;
+      z-index: -2;
+      pointer-events: none;
+      animation: orbFloat 14s ease-in-out infinite alternate;
+    }
+    .orb-1 {
+      width: 260px; height: 260px;
+      top: -60px; left: -60px;
+      background: #ff9ec7;
+    }
+    .orb-2 {
+      width: 300px; height: 300px;
+      bottom: -80px; right: -70px;
+      background: #c7a4ff;
+      animation-delay: -5s;
+    }
+    body.night-mode .orb-1 { background: #a21caf; opacity: 0.3; }
+    body.night-mode .orb-2 { background: #db2777; opacity: 0.25; }
+
+    @keyframes orbFloat {
+      0%   { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(35px, 30px) scale(1.15); }
+    }
+
+    /* Starfield for Night Mode */
+    #starfield {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+    body.night-mode #starfield {
+      opacity: 1;
+    }
+    .star {
+      position: absolute;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.85);
+      animation: twinkle var(--dur, 3s) ease-in-out infinite alternate;
+    }
+    @keyframes twinkle {
+      0%   { opacity: 0.2; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1.25); }
+    }
+
+    /* ==========================================================================
+       GLASSMORPHISM CARDS & BUTTONS
+       ========================================================================== */
+    .glass-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1.5px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+      border-radius: 28px;
+      transition: background 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease, transform 0.3s ease;
+    }
+
+    .glass-card-strong {
+      background: var(--glass-bg-strong);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      border: 1.5px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+      border-radius: 26px;
+    }
+
+    .glass-pill {
+      background: var(--pill-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--pill-border);
+      box-shadow: 0 4px 16px rgba(219, 112, 147, 0.12);
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ff5e9c 0%, #ec4899 50%, #d946ef 100%);
+      color: #ffffff;
+      border: 1.5px solid rgba(255, 255, 255, 0.45);
+      box-shadow: 0 8px 24px var(--accent-glow), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 12px 30px var(--accent-glow), inset 0 1px 2px rgba(255, 255, 255, 0.7);
+    }
+    .btn-primary:active {
+      transform: scale(0.96);
+    }
+
+    .btn-secondary {
+      background: var(--glass-bg-strong);
+      color: var(--text-primary);
+      border: 1.5px solid var(--glass-border);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+      transition: transform 0.2s ease, background 0.3s ease;
+    }
+    .btn-secondary:active {
+      transform: scale(0.96);
+    }
+
+    /* ==========================================================================
+       FLOATING EMOJI LAYERS (AUTO + INTERACTIVE TOUCH BURST)
+       ========================================================================== */
+    #auto-emoji-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    #burst-emoji-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .auto-emoji {
+      position: absolute;
+      bottom: -50px;
+      user-select: none;
+      will-change: transform, opacity;
+      animation: floatUpAuto var(--duration, 12s) linear forwards;
+    }
+
+    @keyframes floatUpAuto {
+      0% {
+        transform: translateY(0) translateX(0) rotate(0deg) scale(0.8);
+        opacity: 0;
+      }
+      12% {
+        opacity: var(--max-opacity, 0.55);
+      }
+      50% {
+        transform: translateY(-52vh) translateX(var(--sway, 25px)) rotate(15deg) scale(1);
+      }
+      88% {
+        opacity: var(--max-opacity, 0.55);
+      }
+      100% {
+        transform: translateY(-112vh) translateX(calc(var(--sway, 25px) * -0.6)) rotate(-15deg) scale(0.9);
+        opacity: 0;
+      }
+    }
+
+    .burst-emoji {
+      position: fixed;
+      user-select: none;
+      pointer-events: none;
+      will-change: transform, opacity;
+      animation: burstFloat 1.25s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    @keyframes burstFloat {
+      0% {
+        transform: translate(-50%, -50%) translate(0px, 0px) scale(0.4) rotate(0deg);
+        opacity: 1;
+      }
+      25% {
+        transform: translate(-50%, -50%) translate(calc(var(--dx) * 0.4), calc(var(--dy) * 0.4)) scale(1.2) rotate(var(--rot));
+        opacity: 1;
+      }
+      100% {
+        transform: translate(-50%, -50%) translate(var(--dx), var(--dy)) scale(0.85) rotate(calc(var(--rot) * 1.8));
+        opacity: 0;
+      }
+    }
+
+    /* ==========================================================================
+       PAGE TRANSITIONS
+       ========================================================================== */
+    .page-section {
+      display: none;
+      opacity: 0;
+      transform: translateY(18px) scale(0.98);
+      transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .page-section.active {
+      display: flex;
+    }
+
+    .page-section.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* ==========================================================================
+       PULSE & FLOAT MICRO-ANIMATIONS
+       ========================================================================== */
+    @keyframes gentlePulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 var(--accent-glow); }
+      50%      { transform: scale(1.06); box-shadow: 0 0 28px 8px var(--accent-glow); }
+    }
+    .pulse-badge {
+      animation: gentlePulse 2.6s ease-in-out infinite;
+    }
+
+    @keyframes pillBob {
+      0%, 100% { transform: translateY(0px); }
+      50%      { transform: translateY(-5px); }
+    }
+    .bob-1 { animation: pillBob 3.1s ease-in-out infinite; }
+    .bob-2 { animation: pillBob 3.5s ease-in-out infinite 0.4s; }
+    .bob-3 { animation: pillBob 3.3s ease-in-out infinite 0.8s; }
+    .bob-4 { animation: pillBob 3.7s ease-in-out infinite 1.2s; }
+
+    /* ==========================================================================
+       PAGE 2: INTERACTIVE 3D CSS ENVELOPE & LETTER REVEAL
+       ========================================================================== */
+    .envelope-stage {
+      perspective: 1000px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .envelope-wrapper {
+      position: relative;
+      width: 280px;
+      height: 185px;
+      cursor: pointer;
+      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
+    }
+    @media (min-width: 420px) {
+      .envelope-wrapper {
+        width: 310px;
+        height: 200px;
+      }
+    }
+
+    .envelope-wrapper:hover:not(.opened) {
+      transform: translateY(-5px) scale(1.02);
+    }
+
+    .envelope-base {
+      position: absolute;
+      inset: 0;
+      background: var(--env-body);
+      border-radius: 16px;
+      box-shadow: 0 18px 38px var(--env-shadow);
+      border: 1.5px solid var(--glass-border);
+      overflow: hidden;
+    }
+
+    /* Inner letter preview peeking inside envelope */
+    .envelope-inner-paper {
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 12px;
+      height: 145px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.25s, opacity 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      color: #b8326a;
+      z-index: 2;
+    }
+    body.night-mode .envelope-inner-paper {
+      background: rgba(255, 238, 248, 0.92);
+    }
+
+    /* Envelope front pockets (left, right, bottom triangles via clip-path) */
+    .envelope-pocket-left {
+      position: absolute;
+      inset: 0;
+      background: var(--env-side);
+      clip-path: polygon(0 0, 52% 52%, 0 100%);
+      z-index: 3;
+      pointer-events: none;
+    }
+    .envelope-pocket-right {
+      position: absolute;
+      inset: 0;
+      background: var(--env-side);
+      clip-path: polygon(100% 0, 48% 52%, 100% 100%);
+      z-index: 3;
+      pointer-events: none;
+    }
+    .envelope-pocket-bottom {
+      position: absolute;
+      inset: 0;
+      background: var(--env-bottom);
+      clip-path: polygon(0 100%, 50% 45%, 100% 100%);
+      z-index: 4;
+      pointer-events: none;
+    }
+
+    /* Top Flap */
+    .envelope-flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 58%;
+      background: var(--env-flap);
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      transform-origin: top center;
+      transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 5;
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.08));
+    }
+
+    /* Heart Wax Seal */
+    .wax-seal {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -40%);
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #ff6b9e, #d81b60);
+      box-shadow: 0 6px 18px rgba(216, 27, 96, 0.48), inset 0 2px 4px rgba(255, 255, 255, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      z-index: 6;
+      transition: transform 0.4s ease, opacity 0.35s ease;
+      animation: sealPulse 2.2s ease-in-out infinite;
+    }
+    @keyframes sealPulse {
+      0%, 100% { transform: translate(-50%, -40%) scale(1); }
+      50%      { transform: translate(-50%, -40%) scale(1.09); }
+    }
+
+    /* Opened Envelope State */
+    .envelope-wrapper.opened .wax-seal {
+      animation: none;
+      transform: translate(-50%, -40%) scale(1.5) rotate(20deg);
+      opacity: 0;
+      pointer-events: none;
+    }
+    .envelope-wrapper.opened .envelope-flap {
+      transform: rotateX(180deg);
+      z-index: 1;
+    }
+    .envelope-wrapper.opened .envelope-inner-paper {
+      transform: translateY(-85px) scale(1.03);
+    }
+
+    /* Full Frosted Letter Reveal */
+    .letter-reveal-card {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transform: translateY(30px) scale(0.95);
+      transition: max-height 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+                  opacity 0.65s ease 0.15s,
+                  transform 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
+    }
+    .letter-reveal-card.revealed {
+      max-height: 1200px;
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* ==========================================================================
+       PAGE 3: PROMISE PILLS SEALED STATE
+       ========================================================================== */
+    .promise-pill {
+      cursor: pointer;
+      user-select: none;
+    }
+    .promise-pill.sealed {
+      background: linear-gradient(135deg, rgba(236, 72, 153, 0.22), rgba(217, 70, 239, 0.2));
+      border-color: #ec4899;
+      box-shadow: 0 6px 20px rgba(236, 72, 153, 0.25);
+      transform: scale(1.02);
+    }
+    .promise-check {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1.5px solid var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      flex-shrink: 0;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .promise-pill.sealed .promise-check {
+      background: #ec4899;
+      border-color: #ec4899;
+      color: #fff;
+      transform: scale(1.12);
+    }
+
+    /* ==========================================================================
+       PAGE 4: PLAYFUL DODGE ARENA & CONFETTI CANVAS
+       ========================================================================== */
+    #confetti-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 45;
+      pointer-events: none;
+    }
+
+    .dodge-arena {
+      position: relative;
+      width: 100%;
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    #btn-no {
+      transition: left 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  top 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  transform 0.2s ease;
+    }
+
+    /* Step Dots */
+    .step-dot {
+      height: 8px;
+      width: 8px;
+      border-radius: 9999px;
+      background: var(--text-muted);
+      opacity: 0.35;
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .step-dot.active {
+      width: 26px;
+      background: var(--accent-rose);
+      opacity: 1;
+      box-shadow: 0 0 12px var(--accent-glow);
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-pink-300 selection:text-pink-950">
+
+  <!-- Animated Pastel Mesh Background -->
+  <div class="mesh-bg"></div>
+  <div class="ambient-orb orb-1"></div>
+  <div class="ambient-orb orb-2"></div>
+  <div id="starfield"></div>
+
+  <!-- Automatic Background Floating Emojis -->
+  <div id="auto-emoji-layer" aria-hidden="true"></div>
+
+  <!-- Interactive Touch/Click Burst Emojis -->
+  <div id="burst-emoji-layer" aria-hidden="true"></div>
+
+  <!-- Celebration Confetti Canvas -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- ========================================================================
+       TOP GLASSMORPHIC NAVIGATION BAR (Step Dots + Day/Night Theme Toggle)
+       ======================================================================== -->
+  <header class="fixed top-0 left-0 right-0 z-30 px-4 pt-3 pb-2 flex items-center justify-between max-w-xl mx-auto">
+    <!-- Back Button (Hidden on Page 1) -->
+    <button
+      id="nav-back-btn"
+      onclick="prevPage()"
+      aria-label="Go Back"
+      class="glass-pill px-3.5 py-2 rounded-full text-sm font-semibold flex items-center gap-1 opacity-0 pointer-events-none transition-opacity duration-300"
+      style="color: var(--text-primary);"
+    >
+      <span>←</span>
+      <span class="hidden sm:inline">Back</span>
+    </button>
+
+    <!-- Glassmorphic Step Dots -->
+    <nav class="glass-pill px-4 py-2.5 rounded-full flex items-center gap-2.5" aria-label="Page Progress">
+      <button onclick="goToPage(1)" class="step-dot active" data-dot="1" aria-label="Page 1"></button>
+      <button onclick="goToPage(2)" class="step-dot" data-dot="2" aria-label="Page 2"></button>
+      <button onclick="goToPage(3)" class="step-dot" data-dot="3" aria-label="Page 3"></button>
+      <button onclick="goToPage(4)" class="step-dot" data-dot="4" aria-label="Page 4"></button>
+    </nav>
+
+    <!-- Day / Night Romantic Theme Toggle -->
+    <button
+      id="theme-toggle"
+      onclick="toggleTheme()"
+      aria-label="Toggle Day and Night Theme"
+      class="glass-pill px-3.5 py-2 rounded-full text-sm font-semibold flex items-center gap-1.5 hover:scale-105 active:scale-95"
+      style="color: var(--text-primary);"
+    >
+      <span id="theme-icon" class="text-base leading-none">🌙</span>
+      <span id="theme-label" class="text-xs font-bold hidden sm:inline">Night</span>
+    </button>
+  </header>
+
+  <!-- ========================================================================
+       MAIN CONTENT CONTAINER
+       ======================================================================== -->
+  <main class="relative z-10 min-h-[100dvh] w-full max-w-xl mx-auto px-4 pt-20 pb-10 flex flex-col justify-center">
+
+    <!-- ======================================================================
+         PAGE 1: WELCOME / COVER PAGE
+         ====================================================================== -->
+    <section id="page-1" class="page-section active visible flex-col items-center justify-center w-full">
+      <div class="glass-card w-full p-7 sm:p-10 text-center flex flex-col items-center">
+        <!-- Pulsing Heart/Envelope Badge -->
+        <div class="pulse-badge w-20 h-20 rounded-full glass-card-strong flex items-center justify-center text-4xl mb-6">
+          💌
+        </div>
+
+        <span class="glass-pill px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4" style="color: var(--accent-rose);">
+          Only For My Manya ✨
+        </span>
+
+        <h1 class="font-romantic text-4xl sm:text-5xl font-bold mb-4 leading-tight" style="color: var(--text-primary);">
+          Heyyy Manya... 🥺💌
+        </h1>
+
+        <p class="text-base sm:text-lg font-medium leading-relaxed mb-8 max-w-md" style="color: var(--text-secondary);">
+          I messed up really bad, bchuuu. Please read this till the end... I made this just for uu 💗
+        </p>
+
+        <button
+          onclick="goToPage(2)"
+          class="btn-primary w-full sm:w-auto px-9 py-4 rounded-full text-base sm:text-lg font-bold tracking-wide flex items-center justify-center gap-2"
+        >
+          <span>Open My Heart ✨</span>
+        </button>
+
+        <p class="mt-6 text-xs font-medium opacity-75" style="color: var(--text-muted);">
+          (Psst... tap anywhere on the screen for cute magic ✨)
+        </p>
+      </div>
+    </section>
+<section id="page-2" class="page-section flex-col items-center justify-center w-full gap-5">
+      <!-- Envelope Interactive Stage -->
+      <div id="envelope-stage" class="envelope-stage">
+        <p id="envelope-hint" class="glass-pill px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold mb-5 animate-bounce" style="color: var(--accent-rose);">
+          Tap the heart seal to open 💌
+        </p>
+
+        <div
+          id="envelope"
+          class="envelope-wrapper"
+          onclick="openEnvelope(event)"
+          role="button"
+          tabindex="0"
+          aria-label="Tap to open romantic apology letter"
+        >
+          <div class="envelope-base">
+            <div class="envelope-inner-paper">
+              <span class="font-romantic text-2xl font-bold">For Manya 💗</span>
+              <span class="text-xs mt-1 font-semibold opacity-75">Dil se sorryyy...</span>
+            </div>
+            <div class="envelope-pocket-left"></div>
+            <div class="envelope-pocket-right"></div>
+            <div class="envelope-pocket-bottom"></div>
+          </div>
+          <div class="envelope-flap"></div>
+          <div class="wax-seal" aria-hidden="true">❤️</div>
+        </div>
+      </div>
+
+      <!-- Revealed Frosted Glass Apology Letter -->
+      <div id="letter-reveal" class="letter-reveal-card w-full">
+        <div class="glass-card-strong w-full p-6 sm:p-8 text-left relative">
+          <!-- Cute corner sparkle -->
+          <div class="flex items-center justify-between mb-3">
+            <span class="glass-pill px-3 py-1 rounded-full text-xs font-bold" style="color: var(--accent-rose);">
+              My Apology Letter 💌
+            </span>
+            <button
+              onclick="resetEnvelope()"
+              class="text-xs font-semibold underline opacity-75 hover:opacity-100"
+              style="color: var(--text-muted);"
+            >
+              Replay envelope
+            </button>
+          </div>
+
+          <h2 class="font-romantic text-3xl sm:text-4xl font-bold mb-4 leading-snug" style="color: var(--text-primary);">
+            I'm Soooo Sorryyy, Bbbbyyy 🥺💔
+          </h2>
+
+          <div class="space-y-4 text-[15px] sm:text-base font-medium leading-relaxed" style="color: var(--text-secondary);">
+            <p>
+              Bbbbyyy soooo sorryy I yelled att uuu... 🥺 I m genuinely very disappointed abt thisss. I mm realllyy realllyy sorryyyy Manya.
+            </p>
+            <p>
+              Andd bbbyyy whtt should I doo, I lovee uu soooo muchhhhh thtss yy I saiddd tooooo muchhh bbbbb. I don't know butt mehh sbb boldetaaa huuu, aur baad mehh mujhe khud bhott bura lgta haii... isliyee dil se sorryyy bbbbb. 🫂💗
+            </p>
+          </div>
+
+          <div class="mt-7 flex justify-center">
+            <button
+              onclick="goToPage(3)"
+              class="btn-primary w-full sm:w-auto px-8 py-3.5 rounded-full text-base font-bold flex items-center justify-center gap-2"
+            >
+              <span>Read Next Page →</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         PAGE 3: MISSING YOU & OUR PROMISES
+         ====================================================================== -->
+    <section id="page-3" class="page-section flex-col items-center justify-center w-full gap-5">
+      <!-- Top Glass Card: Missing You -->
+      <div class="glass-card w-full p-6 sm:p-7">
+        <h2 class="font-romantic text-3xl sm:text-4xl font-bold mb-3 text-center" style="color: var(--text-primary);">
+          Plizzz Manjao Naaa 🥺✨
+        </h2>
+
+        <p class="text-[15px] sm:text-base font-medium leading-relaxed text-center mb-5" style="color: var(--text-secondary);">
+          Bbbbbbbbyyyyy ywrr now plizz manjao andd ache see baatt krlooo... I m missing ur cutie vibes and ur love language so muchhh 🥺
+        </p>
+
+        <!-- Floating Cute Pill Badges -->
+        <div class="flex flex-wrap items-center justify-center gap-2.5">
+          <span class="glass-pill bob-1 px-4 py-2 rounded-full text-xs sm:text-sm font-bold" style="color: var(--text-primary);">
+            bchaa 🥺
+          </span>
+          <span class="glass-pill bob-2 px-4 py-2 rounded-full text-xs sm:text-sm font-bold" style="color: var(--text-primary);">
+            lovee uuu 💗
+          </span>
+          <span class="glass-pill bob-3 px-4 py-2 rounded-full text-xs sm:text-sm font-bold" style="color: var(--text-primary);">
+            ur cute talks ✨
+          </span>
+          <span class="glass-pill bob-4 px-4 py-2 rounded-full text-xs sm:text-sm font-bold" style="color: var(--text-primary);">
+            us being happy 🫂
+          </span>
+        </div>
+      </div>
+
+      <!-- Second Glass Card: Our Forever Promises -->
+      <div class="glass-card w-full p-6 sm:p-7">
+        <div class="flex items-center justify-between flex-wrap gap-2 mb-3">
+          <h2 class="font-romantic text-3xl sm:text-4xl font-bold" style="color: var(--text-primary);">
+            Our Forever Promises 🫶
+          </h2>
+          <span id="promise-counter" class="glass-pill px-3 py-1 rounded-full text-xs font-bold" style="color: var(--accent-rose);">
+            0/4 Sealed 💍
+          </span>
+        </div>
+
+        <div class="space-y-3 text-[14.5px] sm:text-[15.5px] font-medium leading-relaxed mb-5" style="color: var(--text-secondary);">
+          <p>
+            Bbb aise phases bhott aayenge hmarii lifee mehh, butt haarr niiii mannnii naaa bchuuu! Ek galti mehh krungaa, ek aaap — aise hi ek dusre se sikhte hue saath chlenge.
+          </p>
+          <p>
+            Butttt promise mehh hm dono kabhi ek dusre ka trust nii todengeee, orr apnii love lifee dusro se nii puchenge ki 'what should I do next', kyonki vohh sb naa ruinnn kr detaa hai lovee lifee ko... isliyee bbbb be confident, takee action by urselfff, and hm dono milke ekdamm bestt bnke dikhayengeee! 💍✨
+          </p>
+        </div>
+
+        <!-- Interactive Sealable Promise Pills -->
+        <p class="text-xs font-bold uppercase tracking-wider mb-3" style="color: var(--text-muted);">
+          Tap each promise to seal it together 💗
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-6">
+          <button type="button" onclick="togglePromise(this, event)" class="promise-pill glass-pill px-4 py-3 rounded-2xl flex items-center gap-3 text-left">
+            <span class="promise-check"></span>
+            <span class="text-sm font-bold" style="color: var(--text-primary);">No giving up 🫶</span>
+          </button>
+
+          <button type="button" onclick="togglePromise(this, event)" class="promise-pill glass-pill px-4 py-3 rounded-2xl flex items-center gap-3 text-left">
+            <span class="promise-check"></span>
+            <span class="text-sm font-bold" style="color: var(--text-primary);">Unbreakable trust 🔒</span>
+          </button>
+
+          <button type="button" onclick="togglePromise(this, event)" class="promise-pill glass-pill px-4 py-3 rounded-2xl flex items-center gap-3 text-left">
+            <span class="promise-check"></span>
+            <span class="text-sm font-bold" style="color: var(--text-primary);">Just us, no outside noise 🤫</span>
+          </button>
+
+          <button type="button" onclick="togglePromise(this, event)" class="promise-pill glass-pill px-4 py-3 rounded-2xl flex items-center gap-3 text-left">
+            <span class="promise-check"></span>
+            <span class="text-sm font-bold" style="color: var(--text-primary);">Best couple ever ✨</span>
+          </button>
+        </div>
+
+        <div class="flex justify-center">
+          <button
+            onclick="goToPage(4)"
+            class="btn-primary w-full sm:w-auto px-8 py-3.5 rounded-full text-base font-bold flex items-center justify-center gap-2"
+          >
+            <span>One Last Question... 💗</span>
+          </button>
+        </div>
+      </div>
+    </section>
+    <section id="page-4" class="page-section flex-col items-center justify-center w-full">
+      <!-- Question State Card -->
+      <div id="finale-question-card" class="glass-card w-full p-7 sm:p-9 text-center flex flex-col items-center">
+        <div class="w-16 h-16 rounded-full glass-card-strong flex items-center justify-center text-3xl mb-4 pulse-badge">
+          🥺
+        </div>
+
+        <h2 class="font-romantic text-4xl sm:text-5xl font-bold mb-3 leading-tight" style="color: var(--text-primary);">
+          Ab toh manjao naaa, Manya? 🥺💗
+        </h2>
+
+        <p class="text-sm sm:text-base font-medium leading-relaxed mb-4 max-w-md" style="color: var(--text-secondary);">
+          I promise to be softer, calmer, and love uu even more every single dayy 🫂
+        </p>
+
+        <!-- Dynamic Pleading Text when "Abhi Nahi" is hovered/tapped -->
+        <div class="min-h-[28px] mb-3 flex items-center justify-center">
+          <p id="pleading-text" class="text-sm font-bold transition-all duration-300" style="color: var(--accent-rose);">
+            Pleaseee say yes bchuuu 🫶
+          </p>
+        </div>
+
+        <!-- Playful Button Container -->
+        <div id="dodge-arena" class="dodge-arena">
+          <button
+            id="btn-yes"
+            onclick="acceptForgiveness(event)"
+            class="btn-primary px-8 py-4 rounded-full text-base sm:text-lg font-bold tracking-wide z-10"
+          >
+            Haan, Maaf Kiya! 🫂💗
+          </button>
+
+          <button
+            id="btn-no"
+            type="button"
+            class="btn-secondary px-6 py-3 rounded-full text-sm sm:text-base font-bold z-10"
+          >
+            Abhi Nahi 😤
+          </button>
+        </div>
+      </div>
+
+      <!-- Celebration State Card (Hidden until she clicks Yes) -->
+      <div id="finale-celebration-card" class="glass-card-strong w-full p-8 sm:p-10 text-center hidden flex-col items-center">
+        <div class="w-24 h-24 rounded-full glass-card flex items-center justify-center text-5xl mb-5 pulse-badge">
+          🫂
+        </div>
+
+        <span class="glass-pill px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4" style="color: var(--accent-rose);">
+          Best Girlfriend Ever 💍✨
+        </span>
+
+        <h2 class="font-romantic text-4xl sm:text-5xl font-bold mb-4 leading-tight" style="color: var(--text-primary);">
+          Yayyyy!! Thank youuu bchuuu!! 💗✨
+        </h2>
+
+        <p class="text-base sm:text-lg font-semibold leading-relaxed mb-8 max-w-md" style="color: var(--text-secondary);">
+          I lovee uuu soooo muchhhhh Manya, forever &amp; always! 🫂💍
+        </p>
+
+        <button
+          onclick="replayFromStart()"
+          class="btn-secondary px-7 py-3.5 rounded-full text-sm sm:text-base font-bold flex items-center gap-2 hover:scale-105"
+        >
+          <span>Read Again From Start 💌</span>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       INTERACTIVE JAVASCRIPT
+       ======================================================================== -->
+  <script>
+    /* ------------------------------------------------------------------------
+       1. STATE & CONSTANTS
+       ------------------------------------------------------------------------ */
+    let currentPage = 1;
+    const totalPages = 4;
+    let isEnvelopeOpen = false;
+    let dodgeCount = 0;
+    let yesScale = 1;
+
+    const AUTO_EMOJIS = ['🥺', '💗', '✨', '🫂', '🌸', '💌', '🦋', '🫶', '💕'];
+    const BURST_EMOJIS = ['💗', '✨', '🥺', '🫶', '💕', '🌸', '🦋', '💌', '🫂'];
+    const PLEADING_LINES = [
+      'Plizzzz bchuuu maan jao naaa 🥺',
+      'Itna gussa acha ni hota cutie 😭',
+      'Ek virtual hug toh banta hai 🫂',
+      'Acha baba chocolate pakka 🍫🥺',
+      'Manya plizzz naaa, I lovee uuu 💗'
+    ];
+
+    /* ------------------------------------------------------------------------
+       2. STARFIELD GENERATOR (FOR STARRY NIGHT MODE)
+       ------------------------------------------------------------------------ */
+    function initStarfield() {
+      const starfield = document.getElementById('starfield');
+      const starCount = 55;
+      const fragment = document.createDocumentFragment();
+
+      for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        const size = (Math.random() * 2.6 + 1.2).toFixed(1);
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.left = `${(Math.random() * 100).toFixed(2)}%`;
+        star.style.top = `${(Math.random() * 100).toFixed(2)}%`;
+        star.style.setProperty('--dur', `${(Math.random() * 3 + 2).toFixed(2)}s`);
+        star.style.animationDelay = `${(Math.random() * 3).toFixed(2)}s`;
+        fragment.appendChild(star);
+      }
+      starfield.appendChild(fragment);
+    }
+
+    /* ------------------------------------------------------------------------
+       3. DAY / NIGHT ROMANTIC THEME TOGGLE
+       ------------------------------------------------------------------------ */
+    function toggleTheme() {
+      const isNight = document.body.classList.toggle('night-mode');
+      const icon = document.getElementById('theme-icon');
+      const label = document.getElementById('theme-label');
+      if (isNight) {
+        icon.textContent = '☀️';
+        label.textContent = 'Blush';
+      } else {
+        icon.textContent = '🌙';
+        label.textContent = 'Night';
+      }
+    }
+
+    /* ------------------------------------------------------------------------
+       4. AUTOMATIC FLOATING EMOJIS BACKGROUND LAYER
+       ------------------------------------------------------------------------ */
+    function spawnAutoEmoji() {
+      const container = document.getElementById('auto-emoji-layer');
+      // Prevent DOM bloat if tab is inactive
+      if (document.hidden || container.childElementCount > 24) return;
+
+      const el = document.createElement('span');
+      el.className = 'auto-emoji';
+      el.textContent = AUTO_EMOJIS[Math.floor(Math.random() * AUTO_EMOJIS.length)];
+
+      const size = Math.floor(Math.random() * 18) + 18; // 18px to 36px
+      const left = (Math.random() * 94 + 3).toFixed(1);
+      const duration = (Math.random() * 7 + 9).toFixed(1); // 9s to 16s
+      const sway = (Math.random() * 60 - 30).toFixed(0);
+      const maxOpacity = (Math.random() * 0.3 + 0.35).toFixed(2);
+
+      el.style.left = `${left}%`;
+      el.style.fontSize = `${size}px`;
+      el.style.setProperty('--duration', `${duration}s`);
+      el.style.setProperty('--sway', `${sway}px`);
+      el.style.setProperty('--max-opacity', maxOpacity);
+
+      container.appendChild(el);
+
+      setTimeout(() => {
+        el.remove();
+      }, parseFloat(duration) * 1000 + 200);
+    }
+function spawnTouchBurst(x, y, count = 4) {
+      const container = document.getElementById('burst-emoji-layer');
+
+      for (let i = 0; i < count; i++) {
+        const el = document.createElement('span');
+        el.className = 'burst-emoji';
+        el.textContent = BURST_EMOJIS[Math.floor(Math.random() * BURST_EMOJIS.length)];
+
+        const angle = (Math.PI * 2 * i) / count + (Math.random() * 0.6 - 0.3);
+        const distance = 45 + Math.random() * 55;
+        const dx = (Math.cos(angle) * distance).toFixed(1);
+        const dy = (Math.sin(angle) * distance - 55).toFixed(1); // Bias upward
+        const rot = (Math.random() * 50 - 25).toFixed(1);
+        const size = Math.floor(Math.random() * 10) + 18;
+
+        el.style.left = `${x}px`;
+        el.style.top = `${y}px`;
+        el.style.fontSize = `${size}px`;
+        el.style.setProperty('--dx', `${dx}px`);
+        el.style.setProperty('--dy', `${dy}px`);
+        el.style.setProperty('--rot', `${rot}deg`);
+
+        container.appendChild(el);
+        setTimeout(() => el.remove(), 1300);
+      }
+    }
+
+    // Listen to pointerdown for crisp, single-trigger response on both mobile touch & desktop click
+    document.addEventListener('pointerdown', (e) => {
+      const count = 3 + Math.floor(Math.random() * 3); // 3 to 5 emojis
+      spawnTouchBurst(e.clientX, e.clientY, count);
+    });
+
+    /* ------------------------------------------------------------------------
+       6. MULTI-PAGE NAVIGATION WITH SMOOTH TRANSITIONS
+       ------------------------------------------------------------------------ */
+    function goToPage(targetPage) {
+      if (targetPage < 1 || targetPage > totalPages || targetPage === currentPage) return;
+
+      const currentEl = document.getElementById(`page-${currentPage}`);
+      const nextEl = document.getElementById(`page-${targetPage}`);
+
+      // Fade out current page
+      currentEl.classList.remove('visible');
+
+      setTimeout(() => {
+        currentEl.classList.remove('active');
+        nextEl.classList.add('active');
+
+        // Scroll smoothly to top for smaller screens
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        // Trigger reflow then fade in
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            nextEl.classList.add('visible');
+          });
+        });
+
+        currentPage = targetPage;
+        updateNavigationUI();
+      }, 280);
+    }
+
+    function prevPage() {
+      if (currentPage > 1) {
+        goToPage(currentPage - 1);
+      }
+    }
+
+    function updateNavigationUI() {
+      // Update Step Dots
+      document.querySelectorAll('.step-dot').forEach((dot) => {
+        const dotPage = parseInt(dot.getAttribute('data-dot'), 10);
+        dot.classList.toggle('active', dotPage === currentPage);
+      });
+
+      // Show/Hide Back Button
+      const backBtn = document.getElementById('nav-back-btn');
+      if (currentPage === 1) {
+        backBtn.classList.add('opacity-0', 'pointer-events-none');
+      } else {
+        backBtn.classList.remove('opacity-0', 'pointer-events-none');
+      }
+    }
+
+    /* ------------------------------------------------------------------------
+       7. PAGE 2: INTERACTIVE ENVELOPE LOGIC
+       ------------------------------------------------------------------------ */
+    function openEnvelope(event) {
+      if (isEnvelopeOpen) return;
+      isEnvelopeOpen = true;
+
+      const envelope = document.getElementById('envelope');
+      const hint = document.getElementById('envelope-hint');
+      const letterCard = document.getElementById('letter-reveal');
+
+      envelope.classList.add('opened');
+      hint.style.opacity = '0';
+      hint.style.pointerEvents = 'none';
+
+      // Extra sparkle burst at envelope center
+      const rect = envelope.getBoundingClientRect();
+      spawnTouchBurst(rect.left + rect.width / 2, rect.top + rect.height / 2, 8);
+
+      // Reveal full glassmorphic letter card smoothly
+      setTimeout(() => {
+        letterCard.classList.add('revealed');
+      }, 480);
+    }
+
+    function resetEnvelope() {
+      isEnvelopeOpen = false;
+      const envelope = document.getElementById('envelope');
+      const hint = document.getElementById('envelope-hint');
+      const letterCard = document.getElementById('letter-reveal');
+
+      letterCard.classList.remove('revealed');
+      setTimeout(() => {
+        envelope.classList.remove('opened');
+        hint.style.opacity = '1';
+      }, 300);
+    }
+
+    // Keyboard accessibility for envelope
+    document.getElementById('envelope').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openEnvelope(e);
+      }
+    });
+
+    /* ------------------------------------------------------------------------
+       8. PAGE 3: INTERACTIVE SEALABLE PROMISES
+       ------------------------------------------------------------------------ */
+    function togglePromise(btn, event) {
+      btn.classList.toggle('sealed');
+      const checkEl = btn.querySelector('.promise-check');
+      const isSealed = btn.classList.contains('sealed');
+
+      checkEl.textContent = isSealed ? '✓' : '';
+
+      // Update counter
+      const sealedCount = document.querySelectorAll('.promise-pill.sealed').length;
+      const counterEl = document.getElementById('promise-counter');
+      if (sealedCount === 4) {
+        counterEl.textContent = 'All 4 Sealed Forever! 💍✨';
+      } else {
+        counterEl.textContent = `${sealedCount}/4 Sealed 💍`;
+      }
+
+      if (isSealed && event) {
+        spawnTouchBurst(event.clientX, event.clientY, 5);
+      }
+    }
+
+    /* ------------------------------------------------------------------------
+       9. PAGE 4: PLAYFUL DODGING "ABHI NAHI" BUTTON & FINALE CELEBRATION
+       ------------------------------------------------------------------------ */
+    function dodgeNoButton(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+
+      const arena = document.getElementById('dodge-arena');
+      const btnNo = document.getElementById('btn-no');
+      const btnYes = document.getElementById('btn-yes');
+      const pleadingText = document.getElementById('pleading-text');
+
+      // Update cute Hinglish pleading line
+      pleadingText.textContent = PLEADING_LINES[dodgeCount % PLEADING_LINES.length];
+      dodgeCount++;
+
+      // Gently grow the "Yes" button to make it irresistibly cute (capped at 1.22x)
+      yesScale = Math.min(1.22, yesScale + 0.045);
+      btnYes.style.transform = `scale(${yesScale})`;
+
+      // Compute safe random bounds inside the arena so button never clips off-screen
+      const arenaRect = arena.getBoundingClientRect();
+      const btnRect = btnNo.getBoundingClientRect();
+
+      btnNo.style.position = 'absolute';
+
+      const maxX = Math.max(10, arenaRect.width - btnRect.width - 12);
+      const maxY = Math.max(10, arenaRect.height - btnRect.height - 12);
+
+      // Pick a new position away from current position
+      let newX = Math.random() * maxX;
+      let newY = Math.random() * maxY;
+
+      // Ensure it stays mostly below or to the side of the Yes button on small screens
+      btnNo.style.left = `${Math.max(6, newX)}px`;
+      btnNo.style.top = `${Math.max(6, newY)}px`;
+    }
+
+    const btnNoEl = document.getElementById('btn-no');
+    btnNoEl.addEventListener('mouseenter', dodgeNoButton);
+    btnNoEl.addEventListener('pointerdown', dodgeNoButton);
+
+    function acceptForgiveness(event) {
+      // Big emoji burst
+      const cx = window.innerWidth / 2;
+      const cy = window.innerHeight / 2;
+      spawnTouchBurst(cx, cy, 12);
+
+      // Switch to warm celebration card
+      const questionCard = document.getElementById('finale-question-card');
+      const celebrationCard = document.getElementById('finale-celebration-card');
+
+      questionCard.classList.add('hidden');
+      celebrationCard.classList.remove('hidden');
+      celebrationCard.classList.add('flex');
+
+      // Trigger joyful confetti & hearts shower
+      launchConfettiCelebration();
+    }
+
+    function replayFromStart() {
+      // Reset Page 2 Envelope
+      resetEnvelope();
+
+      // Reset Page 3 Promises
+      document.querySelectorAll('.promise-pill.sealed').forEach((pill) => {
+        pill.classList.remove('sealed');
+        pill.querySelector('.promise-check').textContent = '';
+      });
+      document.getElementById('promise-counter').textContent = '0/4 Sealed 💍';
+
+      // Reset Page 4 Finale
+      dodgeCount = 0;
+      yesScale = 1;
+      const btnNo = document.getElementById('btn-no');
+      const btnYes = document.getElementById('btn-yes');
+      btnNo.style.position = '';
+      btnNo.style.left = '';
+      btnNo.style.top = '';
+      btnYes.style.transform = '';
+      document.getElementById('pleading-text').textContent = 'Pleaseee say yes bchuuu 🫶';
+
+      document.getElementById('finale-celebration-card').classList.add('hidden');
+      document.getElementById('finale-celebration-card').classList.remove('flex');
+      document.getElementById('finale-question-card').classList.remove('hidden');
+
+      goToPage(1);
+    }
+
+    /* ------------------------------------------------------------------------
+       10. LIGHTWEIGHT HEART & CONFETTI CANVAS CELEBRATION
+       ------------------------------------------------------------------------ */
+    let confettiParticles = [];
+    let confettiAnimId = null;
+
+    function resizeConfettiCanvas() {
+      const canvas = document.getElementById('confetti-canvas');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    function launchConfettiCelebration() {
+      const canvas = document.getElementById('confetti-canvas');
+      const ctx = canvas.getContext('2d');
+      resizeConfettiCanvas();
+
+      const colors = ['#ff5e9c', '#ec4899', '#f472b6', '#c084fc', '#fbbf24', '#fda4af', '#ffffff'];
+      const shapes = ['heart', 'circle', 'ribbon'];
+      confettiParticles = [];
+
+      for (let i = 0; i < 110; i++) {
+        confettiParticles.push({
+          x: window.innerWidth / 2 + (Math.random() * 120 - 60),
+          y: window.innerHeight * 0.48,
+          vx: (Math.random() - 0.5) * 14,
+          vy: (Math.random() * -12) - 4,
+          gravity: 0.22 + Math.random() * 0.1,
+          size: 6 + Math.random() * 7,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          shape: shapes[Math.floor(Math.random() * shapes.length)],
+          rotation: Math.random() * Math.PI * 2,
+          rotSpeed: (Math.random() - 0.5) * 0.2,
+          opacity: 1
+        });
+      }
+
+      if (confettiAnimId) cancelAnimationFrame(confettiAnimId);
+
+      function drawHeart(c, x, y, size) {
+        c.beginPath();
+        const topCurveHeight = size * 0.3;
+        c.moveTo(x, y + topCurveHeight);
+        c.bezierCurveTo(x, y, x - size / 2, y, x - size / 2, y + topCurveHeight);
+        c.bezierCurveTo(x - size / 2, y + (size + topCurveHeight) / 2, x, y + (size + topCurveHeight) / 1.1, x, y + size);
+        c.bezierCurveTo(x, y + (size + topCurveHeight) / 1.1, x + size / 2, y + (size + topCurveHeight) / 2, x + size / 2, y + topCurveHeight);
+        c.bezierCurveTo(x + size / 2, y, x, y, x, y + topCurveHeight);
+        c.closePath();
+        c.fill();
+      }
+
+      function animateConfetti() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        let activeCount = 0;
+
+        confettiParticles.forEach((p) => {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vy += p.gravity;
+          p.vx *= 0.99;
+          p.rotation += p.rotSpeed;
+
+          if (p.y > canvas.height * 0.75) {
+            p.opacity -= 0.025;
+          }
+
+          if (p.opacity > 0 && p.y < canvas.height + 40) {
+            activeCount++;
+            ctx.save();
+            ctx.globalAlpha = Math.max(0, p.opacity);
+            ctx.translate(p.x, p.y);
+            ctx.rotate(p.rotation);
+            ctx.fillStyle = p.color;
+
+            if (p.shape === 'heart') {
+              drawHeart(ctx, 0, -p.size / 2, p.size * 1.4);
+            } else if (p.shape === 'circle') {
+              ctx.beginPath();
+              ctx.arc(0, 0, p.size * 0.5, 0, Math.PI * 2);
+              ctx.fill();
+            } else {
+              ctx.fillRect(-p.size / 2, -p.size / 4, p.size, p.size / 2);
+            }
+            ctx.restore();
+          }
+        });
+
+        if (activeCount > 0) {
+          confettiAnimId = requestAnimationFrame(animateConfetti);
+        } else {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+      }
+
+      animateConfetti();
+    }
+
+    /* ------------------------------------------------------------------------
+       11. INITIALIZATION ON WINDOW LOAD
+       ------------------------------------------------------------------------ */
+    window.addEventListener('resize', resizeConfettiCanvas);
+
+    window.onload = function () {
+      initStarfield();
+      resizeConfettiCanvas();
+
+      // Seed a few initial floating emojis smoothly
+      for (let i = 0; i < 6; i++) {
+        setTimeout(spawnAutoEmoji, i * 450);
+      }
+      // Continue spawning gentle floating emojis
+      setInterval(spawnAutoEmoji, 1150);
+    };
+  </script>
+</body>
+</html>
+
+    
